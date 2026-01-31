@@ -1,0 +1,80 @@
+/* Education Component Styles - Terminal Theme */
+
+.education-section .card-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.education-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-terminal);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.education-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--terminal-cyan);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.education-degree {
+  color: var(--terminal-cyan);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+.education-school {
+  color: var(--terminal-yellow);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.education-dates {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.education-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.education-gpa {
+  color: var(--terminal-green);
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+.education-honors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.education-honor {
+  background: var(--border-terminal);
+  color: var(--terminal-yellow);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  border: 1px solid var(--terminal-yellow);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .education-card {
+    padding: 1rem;
+  }
+  
+  .education-degree {
+    font-size: 1.1rem;
+  }
+}

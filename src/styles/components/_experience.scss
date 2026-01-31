@@ -1,0 +1,140 @@
+/* Experience Component Styles - Terminal Theme */
+
+.experience-section .card-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.experience-list,
+.education-list {
+  display: grid;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experience-item,
+.education-item {
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-terminal);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.experience-item:hover,
+.education-item:hover {
+  transform: translateY(-3px);
+  border-color: var(--terminal-magenta);
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+}
+
+.experience-item h3,
+.education-item h3 {
+  color: var(--terminal-magenta);
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem;
+  text-shadow: 0 0 5px rgba(255, 0, 255, 0.3);
+}
+
+.experience-company,
+.education-degree {
+  color: var(--terminal-cyan);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.experience-dates,
+.education-dates {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.experience-desc {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.experience-title {
+  color: var(--terminal-cyan);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.experience-location {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.experience-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.experience-skill {
+  background: var(--border-terminal);
+  color: var(--terminal-green);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  border: 1px solid var(--terminal-green);
+}
+
+/* Timeline layout */
+.experience-timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--terminal-green);
+  opacity: 0.3;
+}
+
+.experience-timeline .experience-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.experience-timeline .experience-item::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 1rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--terminal-green);
+  border: 2px solid var(--bg-primary);
+  box-shadow: var(--glow-green);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .experience-timeline {
+    padding-left: 1rem;
+  }
+  
+  .experience-timeline .experience-item::before {
+    left: -1rem;
+  }
+  
+  .experience-item,
+  .education-item {
+    padding: 1rem;
+  }
+}

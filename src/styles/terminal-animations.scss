@@ -1,0 +1,450 @@
+/* Terminal Animation Styles */
+
+/* Glitch effect for titles */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.terminal-glitch {
+  position: relative;
+}
+
+.terminal-glitch::before,
+.terminal-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.terminal-glitch::before {
+  color: #ff00ff;
+  animation: glitch-1 0.3s infinite linear alternate-reverse;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.terminal-glitch::after {
+  color: #00ffff;
+  animation: glitch-2 0.3s infinite linear alternate-reverse;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch-1 {
+  0% { transform: translate(0); }
+  5% { transform: translate(-2px, -2px); }
+  10% { transform: translate(2px, 2px); }
+  15% { transform: translate(-2px, 2px); }
+  20% { transform: translate(2px, -2px); }
+  25% { transform: translate(-2px, -2px); }
+  30% { transform: translate(2px, 2px); }
+  35% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  45% { transform: translate(-2px, -2px); }
+  50% { transform: translate(2px, 2px); }
+  55% { transform: translate(-2px, 2px); }
+  60% { transform: translate(2px, -2px); }
+  65% { transform: translate(-2px, -2px); }
+  70% { transform: translate(2px, 2px); }
+  75% { transform: translate(-2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  85% { transform: translate(-2px, -2px); }
+  90% { transform: translate(2px, 2px); }
+  95% { transform: translate(-2px, 2px); }
+  100% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-2 {
+  0% { transform: translate(0); }
+  5% { transform: translate(2px, 2px); }
+  10% { transform: translate(-2px, -2px); }
+  15% { transform: translate(2px, -2px); }
+  20% { transform: translate(-2px, 2px); }
+  25% { transform: translate(2px, 2px); }
+  30% { transform: translate(-2px, -2px); }
+  35% { transform: translate(2px, -2px); }
+  40% { transform: translate(-2px, 2px); }
+  45% { transform: translate(2px, 2px); }
+  50% { transform: translate(-2px, -2px); }
+  55% { transform: translate(2px, -2px); }
+  60% { transform: translate(-2px, 2px); }
+  65% { transform: translate(2px, 2px); }
+  70% { transform: translate(-2px, -2px); }
+  75% { transform: translate(2px, -2px); }
+  80% { transform: translate(-2px, 2px); }
+  85% { transform: translate(2px, 2px); }
+  90% { transform: translate(-2px, -2px); }
+  95% { transform: translate(2px, -2px); }
+  100% { transform: translate(-2px, 2px); }
+}
+
+/* Terminal cursor */
+.terminal-cursor {
+  color: var(--terminal-green);
+  animation: cursor-blink 1s infinite;
+  font-weight: bold;
+}
+
+@keyframes cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Code block styling */
+.terminal-code-block {
+  background: var(--bg-terminal);
+  border: 1px solid var(--border-terminal);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-family: 'Fira Code', monospace;
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal-code-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-terminal);
+}
+
+.terminal-code-block::after {
+  content: '● ● ●';
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 12px;
+  color: var(--terminal-red);
+  z-index: 1;
+}
+
+.terminal-code-content {
+  margin-top: 40px;
+  color: var(--terminal-green);
+}
+
+/* Terminal prompt */
+.terminal-prompt {
+  color: var(--terminal-blue);
+  font-weight: 600;
+}
+
+.terminal-prompt::before {
+  content: '$ ';
+  color: var(--terminal-green);
+}
+
+/* Loading animation */
+.terminal-loading {
+  display: inline-block;
+  position: relative;
+}
+
+.terminal-loading::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--terminal-green);
+  animation: loading-pulse 1.5s infinite ease-in-out;
+  margin-left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@keyframes loading-pulse {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* Terminal window frame */
+.terminal-frame {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 8px;
+  margin: 1rem 0;
+  box-shadow: 
+    0 0 20px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.terminal-frame::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--terminal-red);
+  box-shadow: 
+    20px 0 0 var(--terminal-yellow),
+    40px 0 0 var(--terminal-green);
+}
+
+.terminal-content {
+  background: var(--bg-terminal);
+  border-radius: 4px;
+  padding: 1rem;
+  margin-top: 24px;
+  min-height: 100px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Typing animation */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.terminal-typing {
+  overflow: hidden;
+  border-right: 2px solid var(--terminal-green);
+  white-space: nowrap;
+  animation: 
+    typing 3.5s steps(40, end),
+    cursor-blink 0.75s step-end infinite;
+}
+
+/* CRT monitor effect */
+.crt-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.crt-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 65, 0.03) 2px,
+      rgba(0, 255, 65, 0.03) 4px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.crt-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Network activity indicator */
+.network-indicator {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--bg-terminal);
+  border: 1px solid var(--terminal-green);
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  color: var(--terminal-green);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease;
+}
+
+.network-indicator.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.network-indicator::before {
+  content: '●';
+  color: var(--terminal-green);
+  animation: pulse 1s infinite;
+  margin-right: 0.5rem;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Unique hover effects */
+.terminal-hover-effect {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.terminal-hover-effect:hover {
+  transform: translateY(-2px);
+}
+
+.terminal-hover-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, var(--terminal-green), var(--terminal-blue));
+  opacity: 0;
+  z-index: -1;
+  border-radius: inherit;
+  filter: blur(10px);
+  transition: opacity 0.3s ease;
+}
+
+.terminal-hover-effect:hover::before {
+  opacity: 0.2;
+}
+
+/* ASCII art container */
+.ascii-art {
+  font-family: 'Courier New', monospace;
+  font-size: 0.6rem;
+  line-height: 1;
+  color: var(--terminal-green);
+  text-align: center;
+  white-space: pre;
+  opacity: 0.3;
+  margin: 2rem 0;
+}
+
+/* Terminal navigation */
+.terminal-nav {
+  background: var(--bg-terminal);
+  border: 1px solid var(--border-terminal);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.terminal-nav-item {
+  display: inline-block;
+  margin: 0 1rem 0.5rem 0;
+  color: var(--terminal-blue);
+  text-decoration: none;
+  font-family: 'Fira Code', monospace;
+  transition: color 0.3s ease;
+}
+
+.terminal-nav-item::before {
+  content: '> ';
+  color: var(--terminal-green);
+}
+
+.terminal-nav-item:hover {
+  color: var(--terminal-green);
+  text-shadow: var(--glow-green);
+}
+
+/* Status bar */
+.terminal-status-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-terminal);
+  padding: 0.5rem 1rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-left,
+.status-right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--terminal-green);
+  animation: pulse 2s infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .terminal-frame {
+    margin: 0.5rem 0;
+    padding: 4px;
+  }
+  
+  .terminal-content {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .network-indicator {
+    top: 10px;
+    right: 10px;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.7rem;
+  }
+  
+  .terminal-status-bar {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.5rem;
+  }
+  
+  .status-left,
+  .status-right {
+    gap: 0.5rem;
+  }
+}

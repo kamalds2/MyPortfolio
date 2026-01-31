@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Brain outline -->
+  <path d="M60 80 Q50 50 70 40 Q100 30 130 40 Q150 50 140 80 Q145 100 135 120 Q130 140 100 145 Q70 140 65 120 Q55 100 60 80 Z" 
+        fill="#8B5CF6" stroke="#A78BFA" stroke-width="3"/>
+  
+  <!-- Brain folds -->
+  <path d="M75 60 Q85 55 95 60" stroke="#1E293B" stroke-width="2" fill="none"/>
+  <path d="M105 60 Q115 55 125 60" stroke="#1E293B" stroke-width="2" fill="none"/>
+  <path d="M70 80 Q80 75 90 80" stroke="#1E293B" stroke-width="2" fill="none"/>
+  <path d="M110 80 Q120 75 130 80" stroke="#1E293B" stroke-width="2" fill="none"/>
+  <path d="M75 100 Q85 95 95 100" stroke="#1E293B" stroke-width="2" fill="none"/>
+  <path d="M105 100 Q115 95 125 100" stroke="#1E293B" stroke-width="2" fill="none"/>
+  <path d="M80 120 Q90 115 100 120 Q110 115 120 120" stroke="#1E293B" stroke-width="2" fill="none"/>
+  
+  <!-- Neural connections -->
+  <circle cx="75" cy="65" r="4" fill="#60A5FA"/>
+  <circle cx="125" cy="65" r="4" fill="#60A5FA"/>
+  <circle cx="85" cy="85" r="4" fill="#60A5FA"/>
+  <circle cx="115" cy="85" r="4" fill="#60A5FA"/>
+  <circle cx="100" cy="105" r="4" fill="#60A5FA"/>
+  
+  <line x1="75" y1="65" x2="85" y2="85" stroke="#60A5FA" stroke-width="1.5" opacity="0.5"/>
+  <line x1="125" y1="65" x2="115" y2="85" stroke="#60A5FA" stroke-width="1.5" opacity="0.5"/>
+  <line x1="85" y1="85" x2="100" y2="105" stroke="#60A5FA" stroke-width="1.5" opacity="0.5"/>
+  <line x1="115" y1="85" x2="100" y2="105" stroke="#60A5FA" stroke-width="1.5" opacity="0.5"/>
+  
+  <!-- Circuit elements -->
+  <circle cx="60" cy="75" r="3" fill="#A78BFA"/>
+  <circle cx="140" cy="75" r="3" fill="#A78BFA"/>
+  <rect x="95" y="135" width="10" height="3" fill="#A78BFA"/>
+</svg>

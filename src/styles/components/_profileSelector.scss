@@ -1,0 +1,254 @@
+/* Profile Selector Component Styles - Terminal Theme */
+
+.profile-selector {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  position: relative;
+  background: var(--bg-primary);
+}
+
+.profile-selector::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(0, 255, 65, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(0, 153, 255, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.profile-selector__title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--terminal-green);
+  text-shadow: var(--glow-green);
+  animation: type-animation 2s steps(20) 1s both;
+  position: relative;
+}
+
+.profile-selector__title::before {
+  content: '> ';
+  color: var(--terminal-blue);
+}
+
+.profile-selector__title::after {
+  content: '_';
+  color: var(--terminal-green);
+  animation: cursor-blink 1s infinite;
+  margin-left: 0.1rem;
+}
+
+@keyframes type-animation {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+@keyframes cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.profile-selector__subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  text-align: center;
+  font-family: 'Fira Code', monospace;
+}
+
+.profile-selector__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  width: 100%;
+}
+
+.profile-selector__card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-terminal);
+  border-radius: 8px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-selector__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--terminal-green), var(--terminal-blue));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.profile-selector__card:hover::before {
+  transform: scaleX(1);
+}
+
+.profile-selector__card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--glow-green);
+  border-color: var(--terminal-green);
+}
+
+.profile-selector__image-wrapper {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--terminal-green);
+  box-shadow: var(--glow-green);
+  position: relative;
+}
+
+.profile-selector__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(1.1) contrast(1.2);
+}
+
+.profile-selector__avatar {
+  width: 100%;
+  height: 100%;
+  background: var(--terminal-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--bg-primary);
+}
+
+.profile-selector__content {
+  text-align: center;
+}
+
+.profile-selector__name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--terminal-green);
+  margin: 0 0 0.5rem;
+  text-shadow: var(--glow-green);
+}
+
+.profile-selector__bio {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  line-height: 1.6;
+}
+
+.profile-selector__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.profile-selector__skill {
+  background: var(--border-terminal);
+  color: var(--terminal-yellow);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  border: 1px solid var(--terminal-yellow);
+}
+
+.profile-selector__cta {
+  background: var(--terminal-blue);
+  color: var(--text-primary);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-family: 'Fira Code', monospace;
+  font-weight: 500;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.profile-selector__cta:hover {
+  background: var(--terminal-green);
+  box-shadow: var(--glow-green);
+  transform: translateY(-2px);
+}
+
+.profile-selector__loading {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--terminal-green);
+  font-family: 'Fira Code', monospace;
+}
+
+.profile-selector__error {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--terminal-red);
+  font-family: 'Fira Code', monospace;
+}
+
+/* Terminal command styling */
+.profile-selector__command {
+  font-family: 'Fira Code', monospace;
+  color: var(--terminal-blue);
+  margin-bottom: 1rem;
+}
+
+.profile-selector__command::before {
+  content: '$ ';
+  color: var(--terminal-green);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .profile-selector__title {
+    font-size: 2rem;
+  }
+  
+  .profile-selector__grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  
+  .profile-selector__card {
+    padding: 1.5rem;
+  }
+  
+  .profile-selector {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-selector__title {
+    font-size: 1.5rem;
+  }
+  
+  .profile-selector__card {
+    padding: 1rem;
+  }
+  
+  .profile-selector__image-wrapper {
+    width: 100px;
+    height: 100px;
+  }
+}

@@ -1,0 +1,44 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="screenGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="1"/>
+      <stop offset="50%" stop-color="#0a0a0a" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="1"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Terminal background -->
+  <rect width="400" height="300" fill="url(#screenGlow)"/>
+  
+  <!-- Matrix-style code lines -->
+  <g opacity="0.3" filter="url(#glow)">
+    <text x="20" y="30" fill="#00ff41" font-family="monospace" font-size="12">function initializePortfolio() {</text>
+    <text x="40" y="50" fill="#00ff41" font-family="monospace" font-size="12">const skills = ['React', 'Node.js'];</text>
+    <text x="40" y="70" fill="#00ff41" font-family="monospace" font-size="12">return { dev: 'awesome' };</text>
+    <text x="20" y="90" fill="#00ff41" font-family="monospace" font-size="12">}</text>
+    
+    <text x="20" y="130" fill="#0099ff" font-family="monospace" font-size="12">$ npm run build</text>
+    <text x="20" y="150" fill="#00ff41" font-family="monospace" font-size="12">✓ Build completed successfully</text>
+    
+    <text x="20" y="190" fill="#ffff00" font-family="monospace" font-size="12">// TODO: Add more features</text>
+    <text x="20" y="210" fill="#00ffff" font-family="monospace" font-size="12">git commit -m "Terminal theme"</text>
+    
+    <text x="20" y="250" fill="#ff00ff" font-family="monospace" font-size="12">console.log('Portfolio loaded');</text>
+  </g>
+  
+  <!-- Scanlines effect -->
+  <g opacity="0.1">
+    <rect x="0" y="0" width="400" height="2" fill="#00ff41"/>
+    <rect x="0" y="10" width="400" height="2" fill="#00ff41"/>
+    <rect x="0" y="20" width="400" height="2" fill="#00ff41"/>
+    <rect x="0" y="30" width="400" height="2" fill="#00ff41"/>
+    <rect x="0" y="40" width="400" height="2" fill="#00ff41"/>
+  </g>
+</svg>

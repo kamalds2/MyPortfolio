@@ -1,0 +1,323 @@
+// ===== Footer Component Styles =====
+
+.footer {
+  background: $bg-secondary;
+  padding: $space-16 0 $space-8;
+  margin-top: $space-20;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: $gradient-border;
+  }
+}
+
+.footer__content {
+  @include container;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-12;
+  align-items: center;
+  
+  @include max-width(md) {
+    grid-template-columns: 1fr;
+    gap: $space-8;
+    text-align: center;
+  }
+}
+
+.footer__brand {
+  h3 {
+    @include gradient-text;
+    font-size: $text-2xl;
+    font-weight: $font-bold;
+    margin-bottom: $space-4;
+    line-height: $leading-tight;
+  }
+  
+  .footer__text {
+    color: $text-secondary;
+    font-size: $text-base;
+    line-height: $leading-relaxed;
+    margin-bottom: $space-6;
+    max-width: 400px;
+    
+    @include max-width(md) {
+      margin: 0 auto $space-6;
+    }
+  }
+  
+  .footer__social {
+    display: flex;
+    gap: $space-4;
+    
+    @include max-width(md) {
+      justify-content: center;
+    }
+    
+    .social-link {
+      @include glass-card($bg-glass, 10px, 0.05);
+      width: 44px;
+      height: 44px;
+      @include flex-center;
+      border-radius: 50%;
+      color: $text-secondary;
+      font-size: $text-lg;
+      transition: $transition-all;
+      
+      &:hover {
+        transform: translateY(-4px);
+        color: $accent-purple;
+        border-color: rgba(139, 92, 246, 0.3);
+        box-shadow: 0 8px 20px rgba(139, 92, 246, 0.2);
+      }
+      
+      &.github:hover { color: #333; }
+      &.linkedin:hover { color: #0077b5; }
+      &.twitter:hover { color: #1da1f2; }
+      &.email:hover { color: $accent-pink; }
+    }
+  }
+}
+
+.footer__info {
+  text-align: right;
+  
+  @include max-width(md) {
+    text-align: center;
+  }
+  
+  .footer__links {
+    display: flex;
+    justify-content: flex-end;
+    gap: $space-8;
+    margin-bottom: $space-6;
+    flex-wrap: wrap;
+    
+    @include max-width(md) {
+      justify-content: center;
+      gap: $space-6;
+    }
+    
+    @include max-width(sm) {
+      flex-direction: column;
+      gap: $space-3;
+    }
+  }
+  
+  .footer__link {
+    color: $text-secondary;
+    font-weight: $font-medium;
+    font-size: $text-base;
+    transition: $transition-base;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: $gradient-primary;
+      transition: width $transition-base;
+    }
+    
+    &:hover {
+      color: $accent-purple;
+      
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+  
+  .footer__copyright {
+    color: $text-muted;
+    font-size: $text-sm;
+    font-weight: $font-medium;
+    
+    .year {
+      color: $accent-purple;
+      font-weight: $font-semibold;
+    }
+    
+    .heart {
+      color: $accent-pink;
+      animation: heartbeat 2s ease-in-out infinite;
+      display: inline-block;
+      margin: 0 $space-1;
+    }
+  }
+}
+
+@keyframes heartbeat {
+  0%, 50%, 100% {
+    transform: scale(1);
+  }
+  25%, 75% {
+    transform: scale(1.1);
+  }
+}
+
+// Back to top button
+.footer__back-to-top {
+  position: fixed;
+  bottom: $space-8;
+  right: $space-8;
+  @include glass-card($bg-card, 15px, 0.1);
+  width: 56px;
+  height: 56px;
+  @include flex-center;
+  border-radius: 50%;
+  color: $text-secondary;
+  font-size: $text-xl;
+  transition: $transition-all;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  z-index: $z-fixed;
+  
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  &:hover {
+    transform: translateY(-4px);
+    color: $accent-purple;
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 12px 24px rgba(139, 92, 246, 0.3);
+  }
+  
+  @include max-width(md) {
+    bottom: $space-6;
+    right: $space-6;
+    width: 48px;
+    height: 48px;
+    font-size: $text-lg;
+  }
+}
+
+// Newsletter signup (if needed)
+.footer__newsletter {
+  @include glass-card($bg-glass, 15px, 0.08);
+  padding: $space-8;
+  border-radius: $radius-2xl;
+  margin-bottom: $space-12;
+  text-align: center;
+  
+  h4 {
+    @include gradient-text;
+    font-size: $text-xl;
+    font-weight: $font-semibold;
+    margin-bottom: $space-2;
+  }
+  
+  p {
+    color: $text-secondary;
+    margin-bottom: $space-6;
+    font-size: $text-base;
+  }
+  
+  .newsletter-form {
+    display: flex;
+    gap: $space-3;
+    max-width: 400px;
+    margin: 0 auto;
+    
+    @include max-width(sm) {
+      flex-direction: column;
+    }
+    
+    .email-input {
+      flex: 1;
+      padding: $space-3 $space-4;
+      background: $bg-card;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: $radius-lg;
+      color: $text-primary;
+      font-size: $text-base;
+      transition: $transition-base;
+      
+      &::placeholder {
+        color: $text-muted;
+      }
+      
+      &:focus {
+        outline: none;
+        border-color: $accent-purple;
+        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+      }
+    }
+    
+    .subscribe-btn {
+      @include button-primary;
+      padding: $space-3 $space-6;
+      white-space: nowrap;
+    }
+  }
+}
+
+// Responsive adjustments
+@include max-width(lg) {
+  .footer {
+    padding: $space-12 0 $space-6;
+    margin-top: $space-16;
+  }
+  
+  .footer__content {
+    gap: $space-10;
+  }
+}
+
+@include max-width(md) {
+  .footer {
+    padding: $space-10 0 $space-6;
+    margin-top: $space-12;
+  }
+  
+  .footer__content {
+    gap: $space-6;
+  }
+  
+  .footer__brand .footer__text {
+    max-width: none;
+  }
+}
+
+@include max-width(sm) {
+  .footer {
+    padding: $space-8 0 $space-4;
+    margin-top: $space-8;
+  }
+  
+  .footer__brand {
+    h3 {
+      font-size: $text-xl;
+    }
+    
+    .footer__social {
+      gap: $space-3;
+      
+      .social-link {
+        width: 40px;
+        height: 40px;
+        font-size: $text-base;
+      }
+    }
+  }
+  
+  .footer__newsletter {
+    padding: $space-6;
+    margin-bottom: $space-8;
+  }
+}

@@ -1,0 +1,22 @@
+<!-- Placeholder Medieval Sword SVG -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 20" fill="currentColor">
+  <defs>
+    <linearGradient id="swordGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4a5568"/>
+      <stop offset="50%" style="stop-color:#d4af37"/>
+      <stop offset="100%" style="stop-color:#4a5568"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Blade -->
+  <rect x="0" y="8" width="170" height="4" fill="url(#swordGradient)"/>
+  
+  <!-- Guard -->
+  <rect x="165" y="6" width="8" height="8" fill="#cd7f32"/>
+  
+  <!-- Handle -->
+  <rect x="173" y="7" width="20" height="6" fill="#8B4513"/>
+  
+  <!-- Pommel -->
+  <circle cx="195" cy="10" r="4" fill="#d4af37"/>
+</svg>
